@@ -203,6 +203,12 @@ message Mount {
     bool selinux_relabel = 4;
     // Requested propagation mode.
     MountPropagation propagation = 5;
+    // Mount options corresponding to the filesystem to be mounted
+    map<string, string> options = 6;
+    // Type of the filesystem to mount: either bind or xfs, ext4,
+    // nfs, ntfs, etc for deferred mount scenarios
+    string type = 7;
+
 }
 
 // A NamespaceMode describes the intended namespace configuration for each
