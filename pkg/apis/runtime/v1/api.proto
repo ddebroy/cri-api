@@ -189,10 +189,14 @@ enum MountPropagation {
 message Mount {
     // Path of the mount within the container.
     string container_path = 1;
-    // Path of the mount on the host. If the hostPath doesn't exist, then runtimes
-    // should report error. If the hostpath is a symbolic link, runtimes should
-    // follow the symlink and mount the real destination to container.
-    string host_path = 2;
+    // Source can be a path in the host (for regular bind-mount
+    // scenarios), a block device or a NFS or CIFS server with
+    // exported path (for deferred mount scenarios). If the 
+    // hostPath doesn't exist, then runtimes should report 
+    // error. If the hostpath is a symbolic link, runtimes 
+    // should follow the symlink and mount the real destination 
+    // to the container.
+    string source = 2;
     // If set, the mount is read-only.
     bool readonly = 3;
     // If set, the mount needs SELinux relabeling.
