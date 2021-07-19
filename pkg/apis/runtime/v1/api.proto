@@ -208,7 +208,6 @@ message Mount {
     // Type of the filesystem to mount: either bind or xfs, ext4,
     // nfs, ntfs, etc for deferred mount scenarios
     string type = 7;
-
 }
 
 // A NamespaceMode describes the intended namespace configuration for each
